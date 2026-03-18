@@ -27,12 +27,9 @@ const timestamp = bundleId.split(".").pop()?.replace(/^t/, "") ?? "";
 const schemeFromBundleId = `manus${timestamp}`;
 
 const env = {
-  // App branding - update these values directly (do not use env vars)
-  appName: "SugarCRM - Sugarcane Farmer Manager",
-  appSlug: "sugarcane-farmer-crm",
-  // S3 URL of the app logo - set this to the URL returned by generate_image when creating custom logo
-  // Leave empty to use the default icon from assets/images/icon.png
-  logoUrl: "",
+  appName: "SugarCRM",
+  appSlug: "{{project_name}}",
+  logoUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663451194399/WPSm2ZUUFJJfU48hLuSPPX/icon-dGCEY2rmSgaeqFK6J9Km8b.png",
   scheme: schemeFromBundleId,
   iosBundleId: bundleId,
   androidPackage: bundleId,

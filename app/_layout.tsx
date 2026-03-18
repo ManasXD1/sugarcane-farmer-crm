@@ -17,6 +17,7 @@ import {
 import type { EdgeInsets, Metrics, Rect } from "react-native-safe-area-context";
 
 import { trpc, createTRPCClient } from "@/lib/trpc";
+import { CRMProvider } from "@/lib/crm-context";
 import { initManusRuntime, subscribeSafeAreaInsets } from "@/lib/_core/manus-runtime";
 
 const DEFAULT_WEB_INSETS: EdgeInsets = { top: 0, right: 0, bottom: 0, left: 0 };
@@ -85,10 +86,18 @@ export default function RootLayout() {
           {/* Default to hiding native headers so raw route segments don't appear (e.g. "(tabs)", "products/[id]"). */}
           {/* If a screen needs the native header, explicitly enable it and set a human title via Stack.Screen options. */}
           {/* in order for ios apps tab switching to work properly, use presentation: "fullScreenModal" for login page, whenever you decide to use presentation: "modal*/}
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="oauth/callback" />
-          </Stack>
+          <CRMProvider>
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="(tabs)" />
+              <Stack.Screen name="oauth/callback" />
+              <Stack.Screen name="farmer/[id]" options={{ presentation: 'card' }} />
+              <Stack.Screen name="farmer/add" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="farmer/[id]/edit" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="visit/add" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="delivery/add" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="payment/add" options={{ presentation: 'modal' }} />
+            </Stack>
+          </CRMProvider>
           <StatusBar style="auto" />
         </QueryClientProvider>
       </trpc.Provider>

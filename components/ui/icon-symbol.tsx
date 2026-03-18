@@ -8,23 +8,62 @@ import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 type IconMapping = Record<SymbolViewProps["name"], ComponentProps<typeof MaterialIcons>["name"]>;
 type IconSymbolName = keyof typeof MAPPING;
 
-/**
- * Add your SF Symbols to Material Icons mappings here.
- * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
- * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
- */
 const MAPPING = {
+  // Navigation
   "house.fill": "home",
   "paperplane.fill": "send",
   "chevron.left.forwardslash.chevron.right": "code",
   "chevron.right": "chevron-right",
+  "chevron.left": "chevron-left",
+  "chevron.down": "expand-more",
+  "chevron.up": "expand-less",
+  // CRM Tabs
+  "chart.bar.fill": "bar-chart",
+  "person.2.fill": "people",
+  "mappin.and.ellipse": "place",
+  "shippingbox.fill": "local-shipping",
+  "doc.text.fill": "description",
+  // Actions
+  "plus": "add",
+  "plus.circle.fill": "add-circle",
+  "pencil": "edit",
+  "trash": "delete",
+  "magnifyingglass": "search",
+  "xmark": "close",
+  "xmark.circle.fill": "cancel",
+  "checkmark": "check",
+  "checkmark.circle.fill": "check-circle",
+  "arrow.left": "arrow-back",
+  "arrow.right": "arrow-forward",
+  "square.and.arrow.up": "share",
+  "bell.fill": "notifications",
+  "gear": "settings",
+  "phone.fill": "phone",
+  "location.fill": "location-on",
+  "calendar": "calendar-today",
+  "clock.fill": "access-time",
+  "star.fill": "star",
+  "info.circle": "info",
+  "exclamationmark.triangle.fill": "warning",
+  "person.fill": "person",
+  "person.crop.circle.fill": "account-circle",
+  "leaf.fill": "eco",
+  "cart.fill": "shopping-cart",
+  "banknote.fill": "payments",
+  "eye.fill": "visibility",
+  "eye.slash.fill": "visibility-off",
+  "arrow.clockwise": "refresh",
+  "list.bullet": "list",
+  "slider.horizontal.3": "tune",
+  "map.fill": "map",
+  "building.2.fill": "business",
+  "tag.fill": "label",
+  "note.text": "note",
+  "tray.fill": "inbox",
+  "ellipsis": "more-horiz",
+  "ellipsis.circle": "more-vert",
 } as IconMapping;
 
-/**
- * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
- * This ensures a consistent look across platforms, and optimal resource usage.
- * Icon `name`s are based on SF Symbols and require manual mapping to Material Icons.
- */
 export function IconSymbol({
   name,
   size = 24,
